@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:10
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - database_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    volumes:
+      - .:/web
+      - bundle:/bundle
+      - node_modules:/web/node_modules
+
+volumes:
+  database_data:
+    driver: local
+  bundle:
+    driver: local
+  node_modules:
+    driver: local

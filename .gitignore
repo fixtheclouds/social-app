@@ -1,0 +1,10 @@
+# dotenv
+.env
+.env.test
+# Frontend
+node_modules
+# Editor
+.vscode
+# version managers
+.tool-versions
+.nvmrc
