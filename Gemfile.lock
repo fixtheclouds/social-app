@@ -70,8 +70,10 @@ GEM
     ffi (1.14.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graphql (1.12.4)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
+    jwt (2.2.2)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -90,6 +92,7 @@ GEM
     nio4r (2.5.5)
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
+    oj (3.11.2)
     pg (1.2.3)
     puma (5.2.1)
       nio4r (~> 2.0)
@@ -149,7 +152,10 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  graphql
+  jwt
   listen (~> 3.3)
+  oj
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.2, >= 6.1.2.1)
