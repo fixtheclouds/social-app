@@ -1,10 +1,35 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
 # dotenv
 .env
 .env.test
+
 # Frontend
 node_modules
+
 # Editor
 .vscode
+
 # version managers
 .tool-versions
 .nvmrc
