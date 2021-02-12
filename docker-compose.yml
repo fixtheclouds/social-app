@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   postgres:
-    image: postgres:10
+    image: postgres:13.1
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -11,6 +11,7 @@ services:
 
   web:
     build: .
+    command: bundle exec rails server
     ports:
       - '3000:3000'
     depends_on:
