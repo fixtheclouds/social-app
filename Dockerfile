@@ -22,3 +22,5 @@ RUN npm i
 COPY . ${WEB_ROOT}
 
 EXPOSE 3000
+
+CMD ["bunlde", "exec", "rails", "server", "-b", "0.0.0.0"]
