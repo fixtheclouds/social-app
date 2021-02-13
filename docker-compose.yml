@@ -1,12 +1,10 @@
 version: '3.3'
 
 services:
-  postgres:
+  db:
     image: postgres:13.1
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - '5432:5432'
     volumes:
       - database_data:/var/lib/postgresql/data
 
@@ -18,9 +16,9 @@ services:
     ports:
       - '3000:3000'
     depends_on:
-      - postgres
+      - db
     links:
-      - postgres
+      - db
     volumes:
       - .:/web
       - bundle:/bundle
