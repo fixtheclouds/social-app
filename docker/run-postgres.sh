@@ -2,4 +2,4 @@
 
 set -e
 
-docker-compose exec web bundle exec rails db:console
+docker-compose exec db psql -U postgres
