@@ -8,12 +8,19 @@ gem 'rails', '~> 6.1.2', '>= 6.1.2.1'
 # DB related
 gem 'pg', '~> 1.1'
 gem 'graphql'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
-# JSON stuff
+# Auth stuff
 gem 'jwt'
+gem 'bcrypt'
+
+# Faster JSON
 gem 'oj'
+
+# Middleware
+gem 'rack-cors'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
