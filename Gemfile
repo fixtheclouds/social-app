@@ -19,6 +19,9 @@ gem 'bcrypt'
 # Faster JSON
 gem 'oj'
 
+# ENV
+gem 'dotenv-rails'
+
 # Middleware
 gem 'rack-cors'
 
