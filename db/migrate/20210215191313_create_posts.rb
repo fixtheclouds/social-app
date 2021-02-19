@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.text :body, null: false
 
       t.references :user, foreign_key: true, index: true, null: false
-      t.references :parent, foreign_key: { to_table: :posts }, index: true, null: false
+      t.references :parent, foreign_key: { to_table: :posts }, index: true
 
       t.datetime :deleted_at
       t.timestamps null: false

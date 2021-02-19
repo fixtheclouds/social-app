@@ -17,10 +17,14 @@ ActiveRecord::Schema.define(version: 2021_02_15_191759) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
+    t.bigint "post_id", null: false
     t.bigint "user_id"
+    t.bigint "parent_id"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -45,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_191759) do
     t.string "title"
     t.text "body", null: false
     t.bigint "user_id", null: false
-    t.bigint "parent_id", null: false
+    t.bigint "parent_id"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_191759) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "comments", column: "parent_id"
+  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "follows", "users"
   add_foreign_key "follows", "users", column: "follower_id"

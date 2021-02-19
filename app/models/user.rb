@@ -5,4 +5,6 @@ class User < ApplicationRecord
   has_many :followings, through: :follow, source: :follower
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  validates :username, :email, presence: true
 end
