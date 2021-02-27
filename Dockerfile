@@ -5,7 +5,8 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/m
     nodejs=14.15.4-r0 npm
 
 ENV WEB_ROOT /web
-RUN mkdir $WEB_ROOT
+ENV CLIENT_ROOT /web/client
+RUN mkdir $WEB_ROOT && mkdir $CLIENT_ROOT
 WORKDIR $WEB_ROOT
 
 ENV LANG=en_US.UTF-8
@@ -16,11 +17,11 @@ COPY Gemfile.lock ${WEB_ROOT}
 RUN bundle install -j $(nproc) --quiet
 
 # Install node things
-COPY package*.json ${WEB_ROOT}/
+COPY client/package*.json ${CLIENT_ROOT}}/
 RUN npm i
 
 COPY . ${WEB_ROOT}
 
 EXPOSE 3000
 
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+CMD ["/docker-entrypoint-empty.sh"]
