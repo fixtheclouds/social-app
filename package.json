@@ -2,7 +2,7 @@
   "name": "social-app-react",
   "version": "1.0.0",
   "description": "React app for SocialApp",
-  "main": "index.js",
+  "main": "client/index.tsx",
   "directories": {
     "lib": "lib"
   },

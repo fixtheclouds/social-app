@@ -21,7 +21,7 @@ const config: webpack.Configuration = {
     path: path.resolve(__dirname, 'public/assets'),
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public/assets'),
+    contentBase: path.join(__dirname, 'public/'),
     compress: true
   }
 };
