@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "webpack serve --hot --port 3000 --open",
+    "start": "webpack serve --hot --port 3030 --open",
     "build": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
