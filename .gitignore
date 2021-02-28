@@ -30,3 +30,6 @@
 # version managers
 .tool-versions
 .nvmrc
+
+# Frontend
+node_modules
