@@ -6,7 +6,8 @@ import {
   VStack,
 } from "@chakra-ui/react"
 
-import NavBar from "./components/NavBar"
+import NavBar from "./components/layout/NavBar"
+import Footer from "./components/layout/Footer"
 import Post from "./components/Post"
 
 export const App = () => {
@@ -21,6 +22,7 @@ export const App = () => {
           <Post />
         </VStack>
       </Container>
+      <Footer />
     </ChakraProvider>
   )
 }
