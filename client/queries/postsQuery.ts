@@ -6,11 +6,13 @@ export default gql`
       id
       title
       body
+      createdAt
       comments {
           body
       }
       user {
           id
+          fullName
           username
       }
     }

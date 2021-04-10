@@ -11,6 +11,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
+import IPost from "../interfaces/IPost"
+
 export default function Post() {
 
   const { loading, error, data } = useQuery(postsQuery)
@@ -18,8 +20,8 @@ export default function Post() {
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
 
-  return data.posts.map((data: any) => (
-    <Center py={6}>
+  return data.posts.map(({ id, body, createdAt, user }: IPost) => (
+    <Center py={6} key={id}>
       <Box
         w={'full'}
         bg={useColorModeValue('white', 'gray.900')}
@@ -33,8 +35,8 @@ export default function Post() {
             alt={'Author'}
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600}>{data.user.username}</Text>
-            <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
+            <Text fontWeight={600}>{user.fullName}</Text>
+            <Text color={'gray.500'}>{createdAt}</Text>
           </Stack>
         </Stack>
         <Box
@@ -50,7 +52,7 @@ export default function Post() {
           />
         </Box>
         <Stack>
-          <Text color={'gray.500'}>{data.body}</Text>
+          <Text color={'gray.500'}>{body}</Text>
         </Stack>
       </Box>
     </Center>
