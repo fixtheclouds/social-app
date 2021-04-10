@@ -1,4 +1,6 @@
 import * as React from "react"
+import { useQuery } from '@apollo/client'
+import postsQuery from "../queries/postsQuery"
 import {
   Box,
   Center,
@@ -9,8 +11,14 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-export default function blogPostWithImage() {
-  return (
+export default function Post() {
+
+  const { loading, error, data } = useQuery(postsQuery)
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+
+  return data.posts.map((data: any) => (
     <Center py={6}>
       <Box
         w={'full'}
@@ -25,7 +33,7 @@ export default function blogPostWithImage() {
             alt={'Author'}
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600}>Achim Rolle</Text>
+            <Text fontWeight={600}>{data.user.username}</Text>
             <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
           </Stack>
         </Stack>
@@ -42,14 +50,9 @@ export default function blogPostWithImage() {
           />
         </Box>
         <Stack>
-          <Text color={'gray.500'}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </Text>
+          <Text color={'gray.500'}>{data.body}</Text>
         </Stack>
       </Box>
     </Center>
-  );
+  ))
 }

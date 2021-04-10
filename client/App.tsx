@@ -8,18 +8,15 @@ import {
 
 import NavBar from "./components/layout/NavBar"
 import Footer from "./components/layout/Footer"
-import Post from "./components/Post"
+import Posts from "./components/Posts"
 
 export const App = () => {
-
   return (
     <ChakraProvider theme={theme}>
       <NavBar />
       <Container maxW="container.md">
         <VStack spacing={4} align="stretch">
-          <Post />
-          <Post />
-          <Post />
+          <Posts />
         </VStack>
       </Container>
       <Footer />
