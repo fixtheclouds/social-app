@@ -11,7 +11,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-import IPost from "../interfaces/IPost"
+import { IPost } from "../interfaces"
 
 export default function Post() {
 
