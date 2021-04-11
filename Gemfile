@@ -16,6 +16,9 @@ gem 'puma', '~> 5.0'
 gem 'jwt'
 gem 'bcrypt'
 
+# MIME
+gem 'mimemagic', '~> 0.3'
+
 # Faster JSON
 gem 'oj'
 

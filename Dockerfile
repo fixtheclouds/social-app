@@ -1,8 +1,8 @@
 FROM ruby:3.0.0-alpine
 
-RUN apk add --no-cache build-base postgresql postgresql-dev libpq
+RUN apk add --no-cache build-base postgresql postgresql-dev libpq shared-mime-info
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.13/main/ \
-    nodejs=14.16.0-r0 npm
+    nodejs=14.16.1-r1 npm
 
 ENV WEB_ROOT /web
 RUN mkdir $WEB_ROOT
