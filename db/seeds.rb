@@ -16,10 +16,12 @@ posts = Post.create(
     {
       user_id: admin_user.id,
       body: Faker::ChuckNorris.fact,
+      image: 'https://i.imgur.com/2a8B9NG.jpg'
     },
     {
       user_id: admin_user.id,
       body: Faker::Lorem.sentence,
+      image: 'https://i.imgur.com/7Xw8fEU.jpg'
     }
   ]
 )
