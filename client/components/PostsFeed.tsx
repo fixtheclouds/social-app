@@ -14,6 +14,6 @@ export default function PostsFeed() {
   if (error) return <p>Error :(</p>
 
   return data.posts.map((post: IPost) => (
-    <Post {...post} />
+    <Post {...post} key={post.id}/>
   ))
 }
