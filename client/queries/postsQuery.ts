@@ -8,12 +8,13 @@ export default gql`
       body
       createdAt
       comments {
-          body
+        body
       }
+      imageUrl
       user {
-          id
-          fullName
-          username
+        id
+        fullName
+        username
       }
     }
   }

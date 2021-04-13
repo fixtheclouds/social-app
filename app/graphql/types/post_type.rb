@@ -10,5 +10,12 @@ module Types
     field :user, Types::UserType, null: false
     field :parent, Types::PostType, null: true
     field :comments, [Types::CommentType], null: true
+    field :image_url, String, null: true
+
+    def image_url
+      return nil if object.image.blank?
+
+      Rails.application.routes.url_helpers.rails_blob_url(object.image)
+    end
   end
 end

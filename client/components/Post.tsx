@@ -1,6 +1,5 @@
-import * as React from "react"
-import { useQuery } from '@apollo/client'
-import postsQuery from "../queries/postsQuery"
+import * as React from 'react';
+import { IPost } from "../interfaces"
 import {
   Box,
   Center,
@@ -11,16 +10,10 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-import { IPost } from "../interfaces"
+export default function Post(props: IPost) {
+  const { id, body, createdAt, user, imageUrl } = props;
 
-export default function Post() {
-
-  const { loading, error, data } = useQuery(postsQuery)
-
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
-
-  return data.posts.map(({ id, body, createdAt, user }: IPost) => (
+  return (
     <Center py={6} key={id}>
       <Box
         w={'full'}
@@ -39,22 +32,13 @@ export default function Post() {
             <Text color={'gray.500'}>{createdAt}</Text>
           </Stack>
         </Stack>
-        <Box
-          bg={'gray.100'}
-          mt={6}
-          mx={0}
-          mb={6}
-          pos={'relative'}>
-          <Image
-            src={
-              'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-            }
-          />
+        <Box bg={'gray.100'} mt={6} mx={0} mb={6} pos={'relative'}>
+          {imageUrl && <Image src={imageUrl} />}
         </Box>
         <Stack>
           <Text color={'gray.500'}>{body}</Text>
         </Stack>
       </Box>
     </Center>
-  ))
+  )
 }

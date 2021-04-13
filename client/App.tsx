@@ -8,7 +8,7 @@ import {
 
 import NavBar from "./components/layout/NavBar"
 import Footer from "./components/layout/Footer"
-import Posts from "./components/Posts"
+import Posts from "./components/PostsFeed"
 
 export const App = () => {
   return (

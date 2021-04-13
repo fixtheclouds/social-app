@@ -3,6 +3,7 @@ export interface IUser {
   username: string
   fullName: string
   lastSignInAt?: number
+  avatarUrl?: string
 }
 
 export interface IPost {
@@ -12,4 +13,5 @@ export interface IPost {
   createdAt: number
   updatedAt: number
   user: IUser
+  imageUrl?: string
 }
