@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react'
 import {
   Avatar,
   Button,
@@ -14,7 +14,7 @@ import {
   MenuDivider,
   useColorModeValue,
   useDisclosure,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 const NavLink = ({ children }: { children: React.ReactNode }) => (
   <Link
@@ -25,18 +25,19 @@ const NavLink = ({ children }: { children: React.ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={'#'}
+  >
     {children}
   </Link>
-);
+)
 
 // TODO: add icons
 // import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-const Links = ['About', 'Search'];
+const Links = ['About', 'Search']
 
 export default function NavBar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -49,10 +50,7 @@ export default function NavBar() {
         />
         <HStack spacing={8} alignItems={'center'}>
           <Box>Logo</Box>
-          <HStack
-            as={'nav'}
-            spacing={4}
-            display={{ base: 'none', md: 'flex' }}>
+          <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
             {Links.map((link) => (
               <NavLink key={link}>{link}</NavLink>
             ))}
@@ -60,11 +58,7 @@ export default function NavBar() {
         </HStack>
         <Flex alignItems={'center'}>
           <Menu>
-            <MenuButton
-              as={Button}
-              rounded={'full'}
-              variant={'link'}
-              cursor={'pointer'}>
+            <MenuButton as={Button} rounded={'full'} variant={'link'} cursor={'pointer'}>
               <Avatar
                 size={'sm'}
                 src={

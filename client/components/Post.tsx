@@ -1,17 +1,9 @@
-import * as React from 'react';
-import { IPost } from "../interfaces"
-import {
-  Box,
-  Center,
-  Text,
-  Stack,
-  Image,
-  Avatar,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import * as React from 'react'
+import { IPost } from '../interfaces'
+import { Box, Center, Text, Stack, Image, Avatar, useColorModeValue } from '@chakra-ui/react'
 
 export default function Post(props: IPost) {
-  const { body, createdAt, user, imageUrl } = props;
+  const { body, createdAt, user, imageUrl } = props
 
   return (
     <Center py={6}>
@@ -21,7 +13,8 @@ export default function Post(props: IPost) {
         boxShadow={'2xl'}
         rounded={'md'}
         p={6}
-        overflow={'hidden'}>
+        overflow={'hidden'}
+      >
         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
           <Avatar src={user.avatarUrl} alt={user.username} />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
