@@ -1,3 +1,6 @@
+
+require 'open-uri'
+
 admin_user = User.create(
   username: 'admin',
   email: 'admin@mail.com',
@@ -16,12 +19,18 @@ posts = Post.create(
     {
       user_id: admin_user.id,
       body: Faker::ChuckNorris.fact,
-      # image: 'https://i.imgur.com/2a8B9NG.jpg'
+      image: {
+        io: URI.open('https://i.imgur.com/2a8B9NG.jpg'),
+        filename: '2a8B9NG.jpg'
+      }
     },
     {
       user_id: admin_user.id,
       body: Faker::Lorem.sentence,
-      # image: 'https://i.imgur.com/7Xw8fEU.jpg'
+      image: {
+        io: URI.open('https://i.imgur.com/7Xw8fEU.jpg'),
+        filename: '7Xw8fEU.jpg'
+      }
     }
   ]
 )
