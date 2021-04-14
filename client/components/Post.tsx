@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function Post(props: IPost) {
-  const { id, body, createdAt, user, imageUrl } = props;
+  const { body, createdAt, user, imageUrl } = props;
 
   return (
     <Center py={6}>
