@@ -12,9 +12,10 @@ gem 'graphql'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
-# Auth stuff
+# Authentication/authorization stuff
 gem 'jwt'
 gem 'bcrypt'
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
 
 # MIME
 gem 'mimemagic', '~> 0.3'
