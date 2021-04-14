@@ -6,6 +6,7 @@ admin_user = User.create(
   email: 'admin@mail.com',
   password: ENV.fetch('ADMIN_PASSWORD'),
   full_name: 'Admin',
+  admin: true,
 )
 tester_user = User.create(
   username: 'tester',
