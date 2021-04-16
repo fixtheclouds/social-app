@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { IPost } from '../interfaces'
 import { Box, Center, Text, Stack, Image, Avatar, useColorModeValue } from '@chakra-ui/react'
+import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 
 export default function Post(props: IPost) {
-  const { body, createdAt, user, imageUrl } = props
+  const { body, createdAt, user, imageUrl, liked, likesCount } = props
 
   return (
     <Center py={6}>
@@ -27,6 +28,10 @@ export default function Post(props: IPost) {
         </Box>
         <Stack>
           <Text color={'gray.500'}>{body}</Text>
+        </Stack>
+        <Stack>
+          {liked ? <IoIosHeart size="2em" /> : <IoIosHeartEmpty size="2em" />}
+          <Text>{likesCount || 0}</Text>
         </Stack>
       </Box>
     </Center>

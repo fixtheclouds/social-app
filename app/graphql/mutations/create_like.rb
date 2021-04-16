@@ -9,7 +9,7 @@ module Mutations
       case likeable_type
       when 'post'
         if current_user.can?(:create, Like)
-          Post.create_like(user: context[:current_user])
+          Post.likes.create(user: context[:current_user])
         else
           render nothing: true, status: 403
         end

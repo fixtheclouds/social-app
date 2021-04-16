@@ -14,4 +14,6 @@ export interface IPost {
   updatedAt: number
   user: IUser
   imageUrl?: string
+  liked?: boolean
+  likesCount?: number
 }

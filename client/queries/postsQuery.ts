@@ -7,10 +7,13 @@ export default gql`
       title
       body
       createdAt
+      updatedAt
+      liked
+      likesCount
+      imageUrl
       comments {
         body
       }
-      imageUrl
       user {
         id
         fullName
