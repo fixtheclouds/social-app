@@ -1,5 +1,5 @@
 module Types
-  class AuthProviderCredentialsInput < BaseInputObject
+  class AuthCredentialsInput < BaseInputObject
     graphql_name 'AUTH_CREDENTIALS'
 
     argument :email, String, required: true
