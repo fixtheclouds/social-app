@@ -29,8 +29,3 @@
 
 # version managers
 .tool-versions
-.nvmrc
-
-# Frontend
-node_modules
-/public/assets/bundle*.js

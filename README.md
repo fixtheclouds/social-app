@@ -1,12 +1,10 @@
 # SocialApp
 
-Pet project.
+Pet project (Backend)
 
 Main technologies and skills to practice:
 - Docker
 - GraphQL
-- React
-- TypeScript
 - Rails 6.0+
 
 ## Run
@@ -22,7 +20,7 @@ $ docker-compose up --build
 $ ./docker/setup.sh
 # Rails console
 $ ./docker/run-console.sh
-# Alpine sh
+# Alpine shell
 $ ./docker/run-shell.rh
 # PG command line
 $ ./docker/run-postgres.sh

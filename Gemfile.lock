@@ -76,7 +76,6 @@ GEM
     faker (2.16.0)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
-    foreman (0.87.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphql (1.12.4)
@@ -169,7 +168,6 @@ DEPENDENCIES
   cancancan (~> 3.2, >= 3.2.1)
   dotenv-rails
   faker
-  foreman
   graphql
   jwt
   listen (~> 3.3)
