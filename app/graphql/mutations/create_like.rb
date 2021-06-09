@@ -8,7 +8,9 @@ module Mutations
     def resolve(likeable_id:, likeable_type:)
       case likeable_type
       when 'post'
-        if current_user.can?(:create, Like)
+        # TODO: make cancancan work first
+        # if can?(:create, Like)
+        if current_user
           Post.likes.create(user: context[:current_user])
         else
           render nothing: true, status: 403
