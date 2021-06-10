@@ -1,6 +1,6 @@
 module Mutations
-  class CreateLikeMutation < BaseMutation
-    field :like, Types::LikeType, null: true
+  class LikeMutation < BaseMutation
+    field :likes_count, Number, null: true
     field :errors, [String], null: true
 
     argument :likeable_id, ID, required: true
@@ -11,17 +11,16 @@ module Mutations
       when 'post'
         if ability.can?(:create, Like)
           post = Post.find_by(id: likeable_id)
-          if post.present?
-            like = post.likes.create(user: current_user)
-            { like: like }
-          else
-            { errors: 'No post found' }
-          end
+          return { errors: 'No post found' } unless post.present?
+          return { errors: 'Already set' } if post.likes.where(user: current_user).exists?
+
+          like = post.likes.create(user: current_user)
+          { likes_count: post.likes.reload.count }
         else
           { errors: 'Not authorized' }
         end
       else
-        raise NotImplementedError, 'Likes for this type are not allowed'
+        { errors: 'Likes for this type are not allowed' }
       end
     end
   end
