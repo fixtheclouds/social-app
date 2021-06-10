@@ -10,5 +10,9 @@ module Mutations
       # TODO: bring back once authentication is set up
       # context[:current_user]
     end
+
+    def ability
+      Ability.new(current_user)
+    end
   end
 end
