@@ -1,6 +1,6 @@
 module Mutations
   class UnlikeMutation < BaseMutation
-    field :likes_count, Number, null: true
+    field :likes_count, Integer, null: true
     field :errors, [String], null: true
 
     argument :likeable_id, ID, required: true

@@ -1,6 +1,6 @@
 module Mutations
   class LikeMutation < BaseMutation
-    field :likes_count, Number, null: true
+    field :likes_count, Integer, null: true
     field :errors, [String], null: true
 
     argument :likeable_id, ID, required: true
@@ -13,7 +13,6 @@ module Mutations
           post = Post.find_by(id: likeable_id)
           return { errors: 'No post found' } unless post.present?
           return { errors: 'Already set' } if post.likes.where(user: current_user).exists?
-
           like = post.likes.create(user: current_user)
           { likes_count: post.likes.reload.count }
         else
