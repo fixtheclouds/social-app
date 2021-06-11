@@ -8,13 +8,14 @@ module Mutations
 
     def resolve(likeable_id:, likeable_type:)
       case likeable_type
-      when 'post'
+      when 'Post'
         if ability.can?(:create, Like)
           post = Post.find_by(id: likeable_id)
           return { errors: 'No post found' } unless post.present?
           return { errors: 'Already set' } if post.likes.where(user: current_user).exists?
+
           like = post.likes.create(user: current_user)
-          { likes_count: post.likes.reload.count }
+          { likes_count: post.likes.count }
         else
           { errors: 'Not authorized' }
         end
